@@ -33,5 +33,5 @@ def get_data():
     return render_template('results.html', prediction = pred_click, azure_prediction = pred_click_azure)
     
 if __name__ == '__main__':
-    application.run(debug=True)
+    app.run(debug=True)
 
