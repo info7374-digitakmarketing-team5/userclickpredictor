@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ad Click Prediction based on user demographic details</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+	<style>
+		#header-div {
+			height: 3em;
+			background-color: rgb(147, 143, 148);
+			margin-bottom: 1em;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		#page-header {
+			font-size: 1.5em;
+			font-weight: bold;
+			text-decoration-color: snow;
+			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+		}
+
+		#container {
+			display: grid;
+			grid-template-columns: auto auto;
+			border-color: black;
+			max-width: 90%;
+			max-height: 100%;
+			margin: auto;
+			border-width: thick;
+			grid-template-rows: 20% 30% 50% 50%;
+		}
+
+		.manual-results {
+			grid-column-start: 1;
+			max-width: 90%;
+			margin: auto;
+		}
+
+		.azure-results {
+			border-width: thick;
+			grid-column-start: 2;
+			max-width: 90%;
+			margin: auto;
+		}
+
+		#manual-header,
+		#azure-header {
+			text-align: center;
+			grid-row-start: initial;
+		}
+
+		.manual-response,
+		.azure-response {
+			text-align: center;
+			grid-row-start: 4;
+		}
+
+		img {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	</style>
+</head>
+
+<body>
+
+	<center id='header-div'>
+		<p id='page-header'>AD click prediction - User Demographic </p>
+	</center>
+	<div id='container'>
+		<div class="manual-results">
+			<h3 id='manual-header'>Manual Implementation</h3>
+			{% if prediction == "1" %}
+			<p class='manual-response'>User will CLICK on the Ad</p>
+			<img src="../static/click.png" style="align-self: center">
+			{% else %}
+			<p class='manual-response'>User will NOT CLICK on the Ad</p>
+			<img src="../static/notclick.png" style="align-self: center">
+			{% endif %}
+		</div>
+		<div class="azure-results">
+			<h3 id='azure-header'>Azure ML Implementation</h3>
+			{% if azure_prediction == "1" %}
+			<p class='azure-response'>User will CLICK on the Ad</p>
+			<img src="../static/click.png" style="align-self: center">
+			{% else %}
+			<p class='azure-response'>User will NOT CLICK on the Ad</p>
+			<img src="../static/notclick.png" style="align-self: center">
+			{% endif %}
+		</div>
+	</div>
+</body>
+
+</html>
